@@ -1,0 +1,155 @@
+/* Full-width cinematic header behaviour and safe hero spacing.
+   Loaded last so it cleanly overrides the earlier polish layer. */
+
+@media (min-width: 901px) {
+  /* Reserve a clear visual corridor under the transparent header so the
+     main glass panel never collides with the navigation. */
+  .hero-cinematic-fullbleed,
+  .hero-content-shell {
+    min-height: clamp(760px, calc(100vh - 64px), 850px);
+  }
+
+  .hero-content-shell {
+    padding-top: clamp(7.35rem, 12vh, 8.5rem);
+    padding-bottom: 2rem;
+  }
+
+  .hero-layout {
+    margin-bottom: 1.35rem;
+  }
+
+  /* The outer header itself becomes the glass strip, so the effect spans
+     the whole viewport instead of shrinking into a small floating card. */
+  header.sticky {
+    top: 0;
+    z-index: 90;
+    margin-bottom: -104px;
+    background: transparent !important;
+    border-bottom: 1px solid transparent !important;
+    box-shadow: none !important;
+    backdrop-filter: blur(0) saturate(100%) !important;
+    -webkit-backdrop-filter: blur(0) saturate(100%) !important;
+    animation: shomoosFullWidthHeader linear both;
+    animation-timeline: scroll(root block);
+    animation-range: 0 180px;
+  }
+
+  /* Keep the content aligned with the hero, but do not shrink the header
+     container or give it a detached rounded-card appearance. */
+  header.sticky > div {
+    width: min(1480px, calc(100% - 2rem));
+    max-width: none;
+    margin: 0 auto;
+    padding: 1.05rem clamp(1.25rem, 3vw, 3rem);
+    border: 0 !important;
+    border-radius: 0 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    transform: none !important;
+    animation: none !important;
+  }
+
+  header.sticky nav {
+    background: rgba(7, 28, 67, 0.34) !important;
+    border-color: rgba(255, 255, 255, 0.24) !important;
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.18),
+      0 10px 28px rgba(2, 11, 31, 0.14);
+    backdrop-filter: blur(14px) saturate(135%);
+    -webkit-backdrop-filter: blur(14px) saturate(135%);
+    animation: shomoosNavContrast linear both;
+    animation-timeline: scroll(root block);
+    animation-range: 0 180px;
+  }
+
+  /* Strong contrast in both transparent and scrolled states. */
+  header.sticky h1 {
+    color: #ffffff !important;
+    text-shadow: 0 3px 18px rgba(0, 0, 0, 0.34);
+    animation: none !important;
+  }
+
+  header.sticky h1 span {
+    color: #facc15 !important;
+    text-shadow: 0 3px 18px rgba(0, 0, 0, 0.3);
+    animation: none !important;
+  }
+
+  header.sticky .text-brand-olive-light {
+    color: #bfdbfe !important;
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.28);
+    animation: none !important;
+  }
+
+  header.sticky .text-brand-charcoal\/50 {
+    color: rgba(255, 255, 255, 0.68) !important;
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.24);
+    animation: none !important;
+  }
+
+  header.sticky nav button:not(.bg-brand-olive) {
+    color: rgba(255, 255, 255, 0.96) !important;
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.26);
+    animation: none !important;
+  }
+
+  header.sticky nav button.bg-brand-olive {
+    background: rgba(30, 58, 138, 0.96) !important;
+    color: #ffffff !important;
+    border: 1px solid rgba(147, 197, 253, 0.42);
+    box-shadow:
+      0 8px 20px rgba(2, 12, 35, 0.2),
+      inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  }
+
+  header.sticky nav button:not(.bg-brand-olive):hover {
+    color: #facc15 !important;
+    background: rgba(255, 255, 255, 0.12) !important;
+    text-shadow: none;
+  }
+
+  @keyframes shomoosFullWidthHeader {
+    from {
+      background: rgba(4, 18, 48, 0);
+      border-bottom-color: transparent;
+      box-shadow: 0 12px 34px rgba(2, 11, 31, 0);
+      backdrop-filter: blur(0) saturate(100%);
+      -webkit-backdrop-filter: blur(0) saturate(100%);
+    }
+
+    to {
+      background: rgba(5, 20, 50, 0.88);
+      border-bottom-color: rgba(255, 255, 255, 0.2);
+      box-shadow:
+        0 16px 38px rgba(2, 11, 31, 0.26),
+        inset 0 -1px 0 rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(20px) saturate(145%);
+      -webkit-backdrop-filter: blur(20px) saturate(145%);
+    }
+  }
+
+  @keyframes shomoosNavContrast {
+    from {
+      background: rgba(7, 28, 67, 0.34);
+      border-color: rgba(255, 255, 255, 0.24);
+    }
+
+    to {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: rgba(255, 255, 255, 0.26);
+    }
+  }
+
+  /* Graceful fallback for browsers without scroll-linked animations. */
+  @supports not (animation-timeline: scroll()) {
+    header.sticky {
+      background: rgba(5, 20, 50, 0.88) !important;
+      border-bottom-color: rgba(255, 255, 255, 0.2) !important;
+      box-shadow: 0 16px 38px rgba(2, 11, 31, 0.26) !important;
+      backdrop-filter: blur(20px) saturate(145%) !important;
+      -webkit-backdrop-filter: blur(20px) saturate(145%) !important;
+    }
+  }
+}
