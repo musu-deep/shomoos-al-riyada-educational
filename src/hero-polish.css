@@ -1,0 +1,155 @@
+/* Final desktop polish for the cinematic hero.
+   Loaded after index.css so these rules safely override the base design. */
+
+@media (min-width: 901px) {
+  .hero-cinematic-fullbleed,
+  .hero-content-shell {
+    min-height: clamp(680px, calc(100vh - 135px), 760px);
+  }
+
+  .hero-cinematic-fullbleed {
+    margin-top: -1rem;
+  }
+
+  .hero-scene {
+    background-position: center 66%;
+    transform: scale(1.01);
+  }
+
+  .hero-curtain {
+    background:
+      linear-gradient(
+        270deg,
+        rgba(3, 17, 49, 0.78) 0%,
+        rgba(5, 25, 65, 0.55) 38%,
+        rgba(5, 23, 58, 0.18) 68%,
+        rgba(4, 15, 38, 0.035) 100%
+      ),
+      linear-gradient(180deg, rgba(5, 15, 37, 0.035), rgba(3, 13, 34, 0.14));
+  }
+
+  .hero-bottom-shade {
+    background: linear-gradient(
+      0deg,
+      rgba(2, 12, 33, 0.68) 0%,
+      rgba(2, 13, 36, 0.12) 43%,
+      transparent 74%
+    );
+  }
+
+  .hero-content-shell {
+    width: min(1480px, calc(100% - 2rem));
+    padding: clamp(2rem, 4.5vh, 3rem) clamp(1.25rem, 3vw, 3rem) 1.6rem;
+    justify-content: center;
+  }
+
+  .hero-layout {
+    grid-template-columns: minmax(0, 1.18fr) minmax(320px, 0.82fr);
+    gap: clamp(2rem, 3.5vw, 3.5rem);
+  }
+
+  .hero-glass-panel {
+    width: 100%;
+    max-width: 850px;
+    padding: clamp(1.8rem, 3vw, 2.75rem) clamp(2rem, 3.4vw, 3.2rem);
+    border-radius: clamp(1.7rem, 2.4vw, 2.35rem);
+    background:
+      linear-gradient(145deg, rgba(31, 65, 126, 0.40), rgba(4, 23, 58, 0.39)),
+      rgba(255, 255, 255, 0.055);
+    backdrop-filter: blur(19px) saturate(135%);
+    -webkit-backdrop-filter: blur(19px) saturate(135%);
+  }
+
+  .hero-kicker {
+    padding: 0.5rem 0.95rem;
+    font-size: clamp(0.72rem, 0.82vw, 0.84rem);
+  }
+
+  .hero-title {
+    margin-top: clamp(1.05rem, 1.8vw, 1.5rem);
+    font-size: clamp(2.8rem, 3.55vw, 3.85rem);
+    line-height: 1.13;
+    letter-spacing: -0.03em;
+    text-wrap: nowrap;
+  }
+
+  .hero-description {
+    max-width: 720px;
+    margin-top: clamp(0.95rem, 1.5vw, 1.3rem);
+    font-size: clamp(0.9rem, 1vw, 1.02rem);
+    line-height: 1.78;
+  }
+
+  .hero-actions {
+    margin-top: clamp(1.1rem, 1.8vw, 1.5rem);
+    grid-template-columns: minmax(0, 1.28fr) minmax(220px, 0.92fr);
+  }
+
+  .hero-primary-action,
+  .hero-secondary-action {
+    min-height: 54px;
+  }
+
+  .hero-image-breathing-space {
+    min-height: 380px;
+  }
+
+  .hero-stats-grid {
+    width: min(910px, 72%);
+    margin-top: -0.35rem;
+    margin-inline: 0 auto;
+    gap: 0.9rem;
+  }
+
+  .hero-floating-card {
+    min-height: 112px;
+    padding: 1rem 1.1rem;
+    border-radius: 1.35rem;
+  }
+
+  .hero-stat-icon {
+    width: 52px;
+    height: 52px;
+    border-radius: 1rem;
+  }
+
+  .hero-floating-card h3 {
+    font-size: clamp(0.98rem, 1.15vw, 1.15rem);
+    line-height: 1.4;
+  }
+}
+
+@media (min-width: 901px) and (max-width: 1150px) {
+  .hero-layout {
+    grid-template-columns: minmax(0, 1.28fr) minmax(210px, 0.72fr);
+    gap: 2rem;
+  }
+
+  .hero-title {
+    font-size: clamp(2.55rem, 4.2vw, 3.15rem);
+  }
+
+  .hero-description {
+    font-size: 0.9rem;
+  }
+
+  .hero-stats-grid {
+    width: 86%;
+  }
+}
+
+@media (max-width: 900px) {
+  .hero-title {
+    text-wrap: balance;
+  }
+
+  .hero-glass-panel {
+    padding: clamp(1.5rem, 5vw, 2.25rem);
+  }
+}
+
+@media (max-width: 680px) {
+  .hero-title {
+    line-height: 1.2;
+  }
+}
