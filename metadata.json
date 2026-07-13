@@ -1,0 +1,6 @@
+{
+  "name": "Shomoos Al-Riyadah Educational Foundation",
+  "description": "Interactive educational platform for Shomoos Al-Riyadah, covering primary, intermediate, and secondary stages, language center (Arabic, Chinese, English), customized training planner, and live audio learning sessions.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
