@@ -55,12 +55,12 @@ export default function HeroSection({ onOpenPlanner }: HeroSectionProps) {
       <div className="hero-ambient hero-ambient-two" aria-hidden="true" />
 
       <div className="hero-content-shell !pt-10 md:!pt-14">
-        <div className="hero-layout !grid-cols-1 xl:!grid-cols-[1.02fr_.98fr] !gap-6 xl:!gap-10">
+        <div className="hero-layout !grid-cols-1 xl:!grid-cols-[minmax(0,1.08fr)_minmax(360px,.92fr)] !gap-6 xl:!gap-12">
           <motion.div
             initial={{ opacity: 0, x: 32, scale: 0.985 }}
             animate={{ opacity: 1, x: 0, scale: 1 }}
             transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1] }}
-            className="hero-glass-panel !max-w-none !p-5 md:!p-8 xl:!p-10"
+            className="hero-glass-panel !w-full !max-w-none !p-5 md:!p-8 xl:!p-9"
           >
             <span className="hero-panel-glint" aria-hidden="true" />
 
@@ -69,19 +69,22 @@ export default function HeroSection({ onOpenPlanner }: HeroSectionProps) {
                 <Laptop2 className="h-4 w-4" />
                 الدراسة أونلاين
               </div>
-              <div className="hero-kicker !m-0 !text-white !border-white/20 !bg-white/10">
+              <div className="hero-kicker !m-0 !border-white/20 !bg-white/10 !text-white">
                 <CalendarDays className="h-4 w-4 text-brand-gold" />
                 تبدأ الدراسة في سبتمبر 2026
               </div>
             </div>
 
-            <h2 id="hero-title" className="hero-title !mt-5 !text-[clamp(2.5rem,4.5vw,4.5rem)]">
-              التسجيل مفتوح الآن
-              <br />
-              <span>للعام الدراسي 2026–2027</span>
+            <h2
+              id="hero-title"
+              className="hero-title !mt-5 !max-w-full !text-[clamp(2.25rem,3.55vw,3.75rem)] !leading-[1.22]"
+            >
+              <span className="block text-white">التسجيل مفتوح الآن</span>
+              <span className="mt-1 block text-brand-gold">للعام الدراسي</span>
+              <span className="block text-brand-gold" dir="ltr">2026–2027</span>
             </h2>
 
-            <p className="hero-description !mt-4">
+            <p className="hero-description !mt-4 !max-w-2xl">
               مؤسسة شموس الريادة التعليمية — بناء عقول متميزة لمستقبل واعد. تعليم تفاعلي
               للمراحل الابتدائية والمتوسطة والثانوية، يجمع بين المنهج السوداني والتعليم العالمي
               ويقدمه معلمون متخصصون في بيئة رقمية حديثة ومحفزة.
@@ -147,7 +150,7 @@ export default function HeroSection({ onOpenPlanner }: HeroSectionProps) {
             initial={{ opacity: 0, scale: 0.96, y: 18 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             transition={{ delay: 0.18, duration: 0.75, ease: [0.22, 1, 0.36, 1] }}
-            className="hidden min-h-[520px] items-end justify-center xl:flex"
+            className="hidden min-h-[500px] items-end justify-center xl:flex"
           >
             <div className="mb-10 w-full max-w-md rounded-[2rem] border border-white/25 bg-white/[0.08] p-5 shadow-[0_35px_90px_rgba(0,0,0,.35)] backdrop-blur-2xl">
               <div className="flex items-center justify-between border-b border-white/15 pb-4">
