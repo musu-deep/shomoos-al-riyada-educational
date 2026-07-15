@@ -45,12 +45,13 @@ export default function HeroSection({ onOpenPlanner }: HeroSectionProps) {
       <div className="hero-ambient hero-ambient-two" aria-hidden="true" />
 
       <div className="mx-auto w-[min(1500px,calc(100%-2rem))] px-2 pb-6 pt-8 md:px-5 md:pt-10">
-        <div className="grid items-stretch gap-5 xl:grid-cols-[0.88fr_1.12fr]">
+        <div dir="ltr" className="grid items-stretch gap-5 xl:grid-cols-[0.88fr_1.12fr]">
           <motion.div
-            initial={{ opacity: 0, x: 32 }}
+            dir="rtl"
+            initial={{ opacity: 0, x: -32 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.7 }}
-            className="relative overflow-hidden rounded-[2rem] border border-white/35 bg-gradient-to-br from-[#183f7b]/85 to-[#071b43]/88 p-6 shadow-[0_30px_90px_rgba(0,0,0,.4)] backdrop-blur-2xl md:p-8"
+            className="relative order-2 overflow-hidden rounded-[2rem] border border-white/35 bg-gradient-to-br from-[#183f7b]/88 to-[#071b43]/92 p-6 shadow-[0_30px_90px_rgba(0,0,0,.4)] backdrop-blur-2xl md:p-8 xl:order-1"
           >
             <div className="absolute inset-x-12 top-0 h-px bg-gradient-to-r from-transparent via-white to-transparent shadow-[0_0_24px_white]" />
 
@@ -60,11 +61,11 @@ export default function HeroSection({ onOpenPlanner }: HeroSectionProps) {
               </span>
             </div>
 
-            <h2 id="hero-title" className="text-[clamp(2.5rem,4.2vw,4.5rem)] font-extrabold leading-[1.12] tracking-tight text-white">
+            <h2 id="hero-title" className="text-[clamp(2.45rem,4vw,4.35rem)] font-extrabold leading-[1.12] tracking-tight text-white">
               التسجيل مفتوح الآن
             </h2>
-            <h3 className="mt-2 text-[clamp(1.55rem,2.7vw,2.75rem)] font-extrabold text-brand-gold">
-              للعام الدراسي 2026–2027
+            <h3 className="mt-2 text-[clamp(1.45rem,2.5vw,2.55rem)] font-extrabold text-brand-gold">
+              للعام الدراسي <bdi dir="ltr">2026–2027</bdi>
             </h3>
             <p className="mt-3 text-lg font-bold text-white">مؤسسة شموس الريادة التعليمية</p>
             <p className="text-base text-white/80">— بناء عقول متميزة لمستقبل واعد —</p>
@@ -102,13 +103,15 @@ export default function HeroSection({ onOpenPlanner }: HeroSectionProps) {
           </motion.div>
 
           <motion.div
+            dir="rtl"
             initial={{ opacity: 0, scale: 0.98 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.12, duration: 0.72 }}
-            className="relative min-h-[500px] overflow-hidden rounded-[2rem] border border-white/15 bg-white/[0.025]"
+            className="relative order-1 min-h-[500px] overflow-hidden rounded-[2rem] border border-white/10 bg-[linear-gradient(135deg,rgba(255,255,255,.035),rgba(4,20,52,.18))] xl:order-2"
           >
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_46%_42%,rgba(255,255,255,.08),transparent_34%)]" />
-            <div className="absolute bottom-7 right-7 max-w-sm rounded-3xl border border-white/25 bg-[#0a285d]/68 p-5 shadow-2xl backdrop-blur-2xl">
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_46%_42%,rgba(255,255,255,.09),transparent_34%)]" />
+            <div className="absolute inset-x-[12%] top-[14%] h-[58%] rounded-[3rem] border border-white/10 bg-white/[0.025] shadow-[inset_0_1px_0_rgba(255,255,255,.12)] backdrop-blur-[2px]" />
+            <div className="absolute bottom-7 right-7 max-w-sm rounded-3xl border border-white/25 bg-[#0a285d]/72 p-5 shadow-2xl backdrop-blur-2xl">
               <p className="text-xs font-bold text-brand-gold">مقاعد محدودة</p>
               <h3 className="mt-1 text-2xl font-extrabold text-white">ابدأ رحلة التميز</h3>
               <div className="my-4 h-px bg-white/15" />
@@ -134,8 +137,8 @@ export default function HeroSection({ onOpenPlanner }: HeroSectionProps) {
           ))}
         </div>
 
-        <div className="mt-5 grid gap-4 xl:grid-cols-[1fr_320px]">
-          <div>
+        <div dir="ltr" className="mt-5 grid gap-4 xl:grid-cols-[1fr_320px]">
+          <div dir="rtl" className="order-2 xl:order-1">
             <h3 className="mb-3 text-center text-2xl font-extrabold text-white">مزايا تعليمية تصنع الفرق</h3>
             <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-7">
               {features.map(({ label, icon: Icon }) => (
@@ -147,7 +150,7 @@ export default function HeroSection({ onOpenPlanner }: HeroSectionProps) {
             </div>
           </div>
 
-          <div className="relative overflow-hidden rounded-2xl border border-red-400/65 bg-gradient-to-br from-red-600/55 to-red-950/80 p-5 shadow-[0_0_34px_rgba(239,68,68,.38)] backdrop-blur-xl">
+          <div dir="rtl" className="relative order-1 overflow-hidden rounded-2xl border border-red-400/65 bg-gradient-to-br from-red-600/55 to-red-950/80 p-5 shadow-[0_0_34px_rgba(239,68,68,.38)] backdrop-blur-xl xl:order-2">
             <div className="flex items-center gap-3">
               <div className="grid h-14 w-14 place-items-center rounded-full bg-red-600 ring-2 ring-yellow-300/70"><Languages className="h-7 w-7 text-white" /></div>
               <div><p className="font-extrabold text-brand-gold">ما يميزنا</p><h3 className="text-xl font-extrabold text-white">تدريس اللغة الصينية</h3></div>
